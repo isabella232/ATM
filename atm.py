@@ -8,13 +8,13 @@ def deposit(balance, amount):
                 returns (20, False)
     '''
     # check for positive number input
-    if (not amount.isdigit() or int(amount) < 0):
+    if (amount < 0):
         print("Invalid amount")
         return balance, False
 
     # print success and return final balance
-    print("Deposited "+ amount)
-    return balance + int(amount), True
+    print("Deposited "+ str(amount))
+    return balance + amount, True
 
 def login(pin):
     ''' attempts to log the user in to the atm
@@ -56,7 +56,7 @@ def printHistory(history):
     for action in history:
         print(action)
 
-        
+
 def printMenu(balance):
     ''' prints available options using a list
         Input: integer
@@ -86,26 +86,22 @@ def printMenu(balance):
         print(option, end="\n")
         i += 1
 
-        
+
 def withdraw(balance, amount):
     ''' subtracts balance by amount if the difference is at least 0
         otherwise returns original balance
-        Input: 20, "10"
+        Input: 20, 10
         Output: returns (10, True)
 
-        Input: 30, "-10"
+        Input: 30, -10
         Output: prints "Not enough in balance" and returns (30, False)
 
-        Input: 50, "abc"
+        Input: 50, abc
         Output: prints "Invalid amount" and returns (50, False)
     '''
-    # check for number input
-    if (not amount.isdigit()):
-        print("Invalid amount")
-        return balance, False
 
     # check for positive number input
-    diff = balance - int(amount)
+    diff = balance - amount
     if (diff < 0):
         print("Not enough in balance")
         return balance, False
@@ -114,7 +110,7 @@ def withdraw(balance, amount):
     print("Withdrew: " + str(diff))
     return diff, True
 
-                  
+
 def main():
     ''' Functions as an atm. Reads and writes to a file
         Enter in a pin to find your account
@@ -138,12 +134,22 @@ def main():
         choice = int(input(">>> Your choice: "))
         if (choice == 0):
             amount = input("Deposit amount: $")
-            (balance, success) = deposit(balance, amount)
+            # FIX CARD 641/642
+            if(not amount.isdigit)
+                (balance, success) = deposit(balance, int(amount))
+            else
+                success = false
+                print("Invalid amount")
             if (success):
                 history.append("Deposited $" + str(amount))
         elif (choice == 1):
             amount = input("Withdraw amount: $")
-            (balance, success) = withdraw(balance, amount)
+            # FIX CARD 641/642
+            if(not amount.isdigit || amount < 0)
+                (balance, success) = withdraw(balance, int(amount))
+            else
+                success = false
+                print("Invalid amount")
             if (success):
                 history.append("Withdrew $" + str(amount))
         elif (choice == 2):
@@ -154,4 +160,3 @@ def main():
             break
         else:
             print("Invalid choice")
-            

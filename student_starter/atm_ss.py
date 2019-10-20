@@ -1,9 +1,9 @@
 def deposit(balance, amount):
     ''' adds balance by amount if a positive number amount is entered
-        Input: 10, "20"
+        Input: 10, 20
         Output: (30, True)
 
-        Input: 20, "-10"
+        Input: 20, -10
         Output: Prints out "Invalid amount"
                 returns (20, False)
     '''
@@ -53,13 +53,13 @@ def printMenu(balance):
 def withdraw(balance, amount):
     ''' subtracts balance by amount if the difference is at least 0
         otherwise returns original balance
-        Input: 20, "10"
+        Input: 20, 10
         Output: returns (10, True)
 
-        Input: 30, "-10"
+        Input: 30, -10
         Output: prints "Not enough in balance" and returns (30, False)
 
-        Input: 50, "abc"
+        Input: 50, abc
         Output: prints "Invalid amount" and returns (50, False)
     '''
     # check for number input
