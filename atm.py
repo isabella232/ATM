@@ -7,7 +7,14 @@ def deposit(balance, amount):
         Output: Prints out "Invalid amount"
                 returns (20, False)
     '''
-    # check for positive number input
+    # check for number input, if true cast to int
+    if (not amount.isdigit()):
+        print("Invalid amount")
+        return balance, False
+    else:
+        amount = int(amount)
+
+    # check for positive number input    
     if (amount < 0):
         print("Invalid amount")
         return balance, False
@@ -99,6 +106,12 @@ def withdraw(balance, amount):
         Input: 50, abc
         Output: prints "Invalid amount" and returns (50, False)
     '''
+    # check for number input, if true cast to int 
+    if (not amount.isdigit()):
+        print("Invalid amount")
+        return balance, False
+    else:
+      amount = int(amount)
 
     # check for positive number input
     diff = balance - amount
@@ -134,20 +147,12 @@ def main():
         choice = int(input(">>> Your choice: "))
         if (choice == 0):
             amount = input("Deposit amount: $")
-            if(amount.isdigit()):
-                (balance, success) = deposit(balance, int(amount))
-            else:
-                success = False
-                print("Invalid amount")
+            (balance, success) = deposit(balance, amount)
             if (success):
                 history.append("Deposited $" + str(amount))
         elif (choice == 1):
             amount = input("Withdraw amount: $")
-            if(amount.isdigit() and int(amount) > 0):
-                (balance, success) = withdraw(balance, int(amount))
-            else:
-                success = False
-                print("Invalid amount")
+            (balance, success) = withdraw(balance, amount)
             if (success):
                 history.append("Withdrew $" + str(amount))
         elif (choice == 2):
