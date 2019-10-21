@@ -135,20 +135,20 @@ def main():
         if (choice == 0):
             amount = input("Deposit amount: $")
             # FIX CARD 641/642
-            if(amount.isdigit):
+            if(amount.isdigit()):
                 (balance, success) = deposit(balance, int(amount))
             else:
-                success = false
+                success = False
                 print("Invalid amount")
             if (success):
                 history.append("Deposited $" + str(amount))
         elif (choice == 1):
             amount = input("Withdraw amount: $")
             # FIX CARD 641/642
-            if(amount.isdigit or amount > 0):
+            if(amount.isdigit() and int(amount) > 0):
                 (balance, success) = withdraw(balance, int(amount))
             else:
-                success = false
+                success = False
                 print("Invalid amount")
             if (success):
                 history.append("Withdrew $" + str(amount))
