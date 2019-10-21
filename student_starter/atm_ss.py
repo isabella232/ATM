@@ -7,7 +7,7 @@ def deposit(balance, amount):
         Output: Prints out "Invalid amount"
                 returns (20, False)
     '''
-    # check for positive number input
+    # check for number input and positive number input
 
     # print success and return final balance
 
