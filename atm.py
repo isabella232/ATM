@@ -89,7 +89,7 @@ def printMenu(balance):
     # print the options
     i = 0
     for option in options:
-        print(str(i) + ". ", end="")
+        print(str(i+1) + ". ", end="")
         print(option, end="\n")
         i += 1
 
@@ -145,19 +145,19 @@ def main():
     while (True):
         printMenu(balance)
         choice = int(input(">>> Your choice: "))
-        if (choice == 0):
+        if (choice == 1):
             amount = input("Deposit amount: $")
             (balance, success) = deposit(balance, amount)
             if (success):
                 history.append("Deposited $" + str(amount))
-        elif (choice == 1):
+        elif (choice == 2):
             amount = input("Withdraw amount: $")
             (balance, success) = withdraw(balance, amount)
             if (success):
                 history.append("Withdrew $" + str(amount))
-        elif (choice == 2):
-            printHistory(history)
         elif (choice == 3):
+            printHistory(history)
+        elif (choice == 4):
             logout(atmFileName, pin, balance, history)
             print("Thank you for using ATM!")
             break
