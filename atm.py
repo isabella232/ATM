@@ -135,7 +135,7 @@ def main():
         if (choice == 0):
             amount = input("Deposit amount: $")
             # FIX CARD 641/642
-            if(not amount.isdigit):
+            if(amount.isdigit):
                 (balance, success) = deposit(balance, int(amount))
             else:
                 success = false
@@ -145,7 +145,7 @@ def main():
         elif (choice == 1):
             amount = input("Withdraw amount: $")
             # FIX CARD 641/642
-            if(not amount.isdigit or amount < 0):
+            if(amount.isdigit or amount > 0):
                 (balance, success) = withdraw(balance, int(amount))
             else:
                 success = false
